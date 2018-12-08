@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import GetStarted from './components/get-started';
+import Profile from './components/profile';
 
-ReactDOM.render(<GetStarted />, document.getElementById('root'));
+ReactDOM.render(<Profile />, document.getElementById('root'));
