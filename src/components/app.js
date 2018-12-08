@@ -7,7 +7,7 @@ const savedDogs = [
     image: 'https://www.petmd.com/sites/default/files/over-active-dog-211592482.jpg'
   },
   {
-    name: 'Dave',
+    name: 'Greg',
     image: 'https://www.petmd.com/sites/default/files/over-active-dog-211592482.jpg'
   },
   {
