@@ -1,0 +1,13 @@
+.profile {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.saved-dogs {
+  height: 350px;
+  width: 350px;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-right: auto;
+}
