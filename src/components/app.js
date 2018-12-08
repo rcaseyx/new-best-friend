@@ -3,7 +3,7 @@ import Profile from './profile/profile';
 
 const savedDogs = [
   {
-    name: 'Jeff',
+    name: 'Joe',
     image: 'https://www.petmd.com/sites/default/files/over-active-dog-211592482.jpg'
   },
   {
