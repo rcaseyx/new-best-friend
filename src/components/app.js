@@ -1,4 +1,7 @@
 import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import Home from './home/home';
 import Profile from './profile/profile';
 
 const savedDogs = [
@@ -21,10 +24,19 @@ const preferences = {
     size: 'any'
 };
 
-export default class App extends React.Component {
-    render() {
-      return (
-        <Profile firstName="Test" savedDogs={savedDogs} preferences={preferences} />
-      );
-    }
+export default function App(props) {
+    return (
+      <Router>
+          <div className="app">
+              <main>
+                  <Route exact path="/" component={Home} />
+                  <Route
+                    exact
+                    path="/profile"
+                    render={() => <Profile firstName="Test" savedDogs={savedDogs} preferences={preferences} />}
+                  />
+              </main>
+          </div>
+      </Router>
+    )
 }
