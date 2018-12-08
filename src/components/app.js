@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Home from './home/home';
 import Profile from './profile/profile';
+import NavBar from './navbar/navbar';
+import FriendSearch from './friend-search/friend-search';
 
 const savedDogs = [
   {
@@ -29,12 +31,14 @@ export default function App(props) {
       <Router>
           <div className="app">
               <main>
+                  <Route path="/" component={NavBar} />
                   <Route exact path="/" component={Home} />
                   <Route
                     exact
                     path="/profile"
                     render={() => <Profile firstName="Test" savedDogs={savedDogs} preferences={preferences} />}
                   />
+                  <Route exact path="/search" component={FriendSearch} />
               </main>
           </div>
       </Router>

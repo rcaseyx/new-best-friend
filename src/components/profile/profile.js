@@ -10,7 +10,7 @@ export default class Profile extends React.Component {
           <div key={index}>
               <SavedDog {...dog} />
           </div>
-    );
+      );
       return (
         <div className="profile">
           <h3>{this.props.firstName}'s Profile</h3>
