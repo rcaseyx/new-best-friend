@@ -45,6 +45,22 @@ export default class FriendSearch extends React.Component {
             <div className="cards">
                 {dogCards[0]}
             </div>
+            <div className="buttons">
+                <input
+                  type="image"
+                  src="https://cdn2.iconfinder.com/data/icons/greenline/512/check-512.png"
+                  alt="Like button"
+                  className="like"
+                  onClick={(e) => e.preventDefault}
+                />
+                <input
+                  type="image"
+                  src="https://cdn3.iconfinder.com/data/icons/audio-sound-and-video/64/audio-video-outline-forward-512.png"
+                  alt="Next button"
+                  className="next"
+                  onClick={(e) => e.preventDefault}
+                />
+            </div>
         </div>
       );
     }
