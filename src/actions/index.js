@@ -22,15 +22,13 @@ export const resetPosition = () => ({
 });
 
 export const UPDATE_AGE = 'UPDATE_AGE';
-export const updateAge = (age, size) => ({
+export const updateAge = age => ({
     type: UPDATE_AGE,
-    age,
-    size
+    age
 });
 
 export const UPDATE_SIZE = 'UPDATE_SIZE';
-export const updateSize = (age, size) => ({
+export const updateSize = size => ({
     type: UPDATE_SIZE,
-    age,
     size
 });

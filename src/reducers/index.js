@@ -49,12 +49,9 @@ const initialState = {
 
 export const nbfReducer = (state=initialState, action) => {
     if (action.type === actions.UPDATE_PREFERENCES) {
-        return Object.assign({}, state, {
-            preferences: {
-                age: action.age,
-                size: action.size
-            }
-        });
+        //send to API
+        console.log(action.age);
+        console.log(action.size);
     }
     else if (action.type === actions.ADD_DOG) {
         return Object.assign({}, state, {
@@ -76,15 +73,15 @@ export const nbfReducer = (state=initialState, action) => {
     else if (action.type === actions.UPDATE_AGE) {
         return Object.assign({}, state, {
           preferences: {
-              age: action.age,
-              size: state.size
+              ...state.preferences,
+              age: action.age
           }
         });
     }
     else if (action.type === actions.UPDATE_SIZE) {
         return Object.assign({}, state, {
           preferences: {
-              age: state.age,
+              ...state.preferences,
               size: action.size
           }
         });

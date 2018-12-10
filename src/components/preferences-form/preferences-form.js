@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateAge, updateSize} from '../../actions';
+import {updateAge, updateSize, updatePreferences} from '../../actions';
 import './preferences-form.css';
 
 export class PreferencesForm extends React.Component {
@@ -8,6 +8,7 @@ export class PreferencesForm extends React.Component {
         super(props);
         this.handleAgeChange = this.handleAgeChange.bind(this);
         this.handleSizeChange = this.handleSizeChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     updateAge(age) {
@@ -16,6 +17,15 @@ export class PreferencesForm extends React.Component {
 
     updateSize(size) {
         this.props.dispatch(updateSize(size));
+    }
+
+    updatePreferences(preferences) {
+        this.props.dispatch(updatePreferences(preferences));
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.updatePreferences(this.props.preferences);
     }
 
     handleAgeChange(event) {
@@ -28,7 +38,7 @@ export class PreferencesForm extends React.Component {
 
     render() {
       return (
-        <form>
+        <form onSubmit={this.handleSubmit}>
             <div className="radio">
                 Age Preference:
                 <label>
@@ -107,6 +117,11 @@ export class PreferencesForm extends React.Component {
                   Any
                 </label>
             </div>
+            <input
+              type="submit"
+              className="update-button"
+              value="Update"
+            />
         </form>
       )
     }
