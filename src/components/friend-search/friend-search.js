@@ -1,68 +1,49 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {addDog, incrementPosition, resetPosition} from '../../actions';
 import './friend-search.css';
 import DogCard from '../dog-card/dog-card';
 
-const dogs = [
-  {
-    name: 'Carl',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-    age: 'Puppy',
-    size: 'Large',
-    link: 'www.aspca.org'
-  },
-  {
-    name: 'Woof',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-    age: 'Mature',
-    size: 'Small',
-    link: 'www.aspca.org'
-  },
-  {
-    name: 'Warf',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-    age: 'Elderly',
-    size: 'Medium',
-    link: 'www.aspca.org'
-  },
-  {
-    name: 'Spock',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-    age: 'Puppy',
-    size: 'Small',
-    link: 'www.aspca.org'
-  }
-];
-
-export default class FriendSearch extends React.Component {
+export class FriendSearch extends React.Component {
   constructor(props) {
       super(props);
-      this.state = {
-        i: 0
-      }
       this.onLikeClick = this.onLikeClick.bind(this);
       this.onNextClick = this.onNextClick.bind(this);
   }
 
+    componentWillMount() {
+      this.resetPosition();
+    }
+
+    addDog(dog) {
+      this.props.dispatch(addDog(dog));
+    }
+
+    incrementPosition() {
+      this.props.dispatch(incrementPosition());
+    }
+
+    resetPosition() {
+      this.props.dispatch(resetPosition());
+    }
+
     onLikeClick() {
-      const i = this.state.i + 1;
-      console.log(i);
-      this.setState({i});
+      this.addDog(this.props.dogs[this.props.position]);
+      this.incrementPosition();
       //send dog to savedDogs
     }
 
     onNextClick() {
-      const i = this.state.i + 1;
-      console.log(i);
-      this.setState({i});
+      this.incrementPosition();
     }
 
     render() {
-      if (this.state.i < dogs.length) {
+      if (this.props.position < this.props.dogs.length) {
         return (
           <div className="search-container">
               <h4>Find a new best friend!</h4>
               <div className="cards">
-                <DogCard {...dogs[this.state.i]} />
+                <DogCard {...this.props.dogs[this.props.position]} />
               </div>
               <div className="buttons">
                   <input
@@ -91,3 +72,17 @@ export default class FriendSearch extends React.Component {
       }
     }
 }
+
+FriendSearch.defaultProps = {
+    position: 0
+}
+
+const mapStateToProps = state => ({
+  dogs: state.dogs,
+  savedDogs: state.savedDogs,
+  preferences: state.preferences,
+  position: state.position,
+  user: state.user
+});
+
+export default connect(mapStateToProps)(FriendSearch);

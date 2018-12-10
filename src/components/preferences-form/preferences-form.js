@@ -1,23 +1,29 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {updateAge, updateSize} from '../../actions';
 import './preferences-form.css';
 
-export default class PreferencesForm extends React.Component {
+export class PreferencesForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleAgeChange = this.handleAgeChange.bind(this);
         this.handleSizeChange = this.handleSizeChange.bind(this);
     }
 
+    updateAge(age) {
+        this.props.dispatch(updateAge(age));
+    }
+
+    updateSize(size) {
+        this.props.dispatch(updateSize(size));
+    }
+
     handleAgeChange(event) {
-      this.setState({
-        age: event.target.value
-      });
+        this.updateAge(event.target.value);
     }
 
     handleSizeChange(event) {
-      this.setState({
-        size: event.target.value
-      });
+        this.updateSize(event.target.value);
     }
 
     render() {
@@ -29,7 +35,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="puppy"
-                    checked={this.props.age === "puppy"}
+                    checked={this.props.preferences.age === "puppy"}
                     onChange={this.handleAgeChange}
                   />
                   Puppy
@@ -38,7 +44,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="mature"
-                    checked={this.props.age === "mature"}
+                    checked={this.props.preferences.age === "mature"}
                     onChange={this.handleAgeChange}
                   />
                   Mature
@@ -47,7 +53,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="elderly"
-                    checked={this.props.age === "elderly"}
+                    checked={this.props.preferences.age === "elderly"}
                     onChange={this.handleAgeChange}
                   />
                   Elderly
@@ -56,7 +62,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="any"
-                    checked={this.props.age === "any"}
+                    checked={this.props.preferences.age === "any"}
                     onChange={this.handleAgeChange}
                   />
                   Any
@@ -68,7 +74,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="small"
-                    checked={this.props.size === "small"}
+                    checked={this.props.preferences.size === "small"}
                     onChange={this.handleSizeChange}
                   />
                   Small
@@ -77,7 +83,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="medium"
-                    checked={this.props.size === "medium"}
+                    checked={this.props.preferences.size === "medium"}
                     onChange={this.handleSizeChange}
                   />
                   Medium
@@ -86,7 +92,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="large"
-                    checked={this.props.size === "large"}
+                    checked={this.props.preferences.size === "large"}
                     onChange={this.handleSizeChange}
                   />
                   Large
@@ -95,7 +101,7 @@ export default class PreferencesForm extends React.Component {
                   <input
                     type="radio"
                     value="any"
-                    checked={this.props.size === "any"}
+                    checked={this.props.preferences.size === "any"}
                     onChange={this.handleSizeChange}
                   />
                   Any
@@ -105,3 +111,13 @@ export default class PreferencesForm extends React.Component {
       )
     }
 }
+
+const mapStateToProps = state => ({
+    dogs: state.dogs,
+    savedDogs: state.savedDogs,
+    preferences: state.preferences,
+    position: state.position,
+    user: state.user
+});
+
+export default connect(mapStateToProps)(PreferencesForm);

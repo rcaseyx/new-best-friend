@@ -1,10 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import './profile.css';
 
 import PreferencesForm from '../preferences-form/preferences-form';
 import SavedDog from '../saved-dog/saved-dog';
 
-export default class Profile extends React.Component {
+export class Profile extends React.Component {
     render() {
       const dogs = this.props.savedDogs.map((dog, index) =>
           <div key={index}>
@@ -13,7 +14,7 @@ export default class Profile extends React.Component {
       );
       return (
         <div className="profile">
-          <h3>{this.props.firstName}'s Profile</h3>
+          <h3>{this.props.user.firstName}'s Profile</h3>
           <div className="saved-dogs-container">
             <h4>Saved Dogs</h4>
             <div className="saved-dogs">
@@ -28,3 +29,20 @@ export default class Profile extends React.Component {
       )
     }
 }
+
+Profile.defaultProps = {
+    preferences: {
+        age: 'any',
+        size: 'any'
+    }
+};
+
+const mapStateToProps = state => ({
+    dogs: state.dogs,
+    savedDogs: state.savedDogs,
+    preferences: state.preferences,
+    position: state.position,
+    user: state.user
+});
+
+export default connect(mapStateToProps)(Profile);
