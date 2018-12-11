@@ -6,26 +6,6 @@ import Profile from './profile/profile';
 import NavBar from './navbar/navbar';
 import FriendSearch from './friend-search/friend-search';
 
-const savedDogs = [
-  {
-    name: 'Joe',
-    image: 'https://www.petmd.com/sites/default/files/over-active-dog-211592482.jpg'
-  },
-  {
-    name: 'Gregs',
-    image: 'https://www.petmd.com/sites/default/files/over-active-dog-211592482.jpg'
-  },
-  {
-    name: 'Bob',
-    image: 'https://www.petmd.com/sites/default/files/over-active-dog-211592482.jpg'
-  }
-];
-
-const preferences = {
-    age: 'any',
-    size: 'any'
-};
-
 export default function App(props) {
     return (
       <Router>
@@ -36,7 +16,7 @@ export default function App(props) {
                   <Route
                     exact
                     path="/profile"
-                    render={() => <Profile firstName="Test" savedDogs={savedDogs} preferences={preferences} />}
+                    component={Profile}
                   />
                   <Route exact path="/search" component={FriendSearch} />
               </main>

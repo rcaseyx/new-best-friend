@@ -9,6 +9,8 @@ export class PreferencesForm extends React.Component {
         this.handleAgeChange = this.handleAgeChange.bind(this);
         this.handleSizeChange = this.handleSizeChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.checkAgeSelection = this.checkAgeSelection.bind(this);
+        this.checkSizeSelection = this.checkSizeSelection.bind(this);
     }
 
     updateAge(age) {
@@ -36,12 +38,30 @@ export class PreferencesForm extends React.Component {
         this.updateSize(event.target.value);
     }
 
+    checkAgeSelection(value) {
+        if (this.props.preferences.age === value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    checkSizeSelection(value) {
+        if (this.props.preferences.size === value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
             <div className="radio">
                 Age Preference:
-                <label>
+                <label
+                  className={this.checkAgeSelection('puppy') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="puppy"
@@ -50,7 +70,9 @@ export class PreferencesForm extends React.Component {
                   />
                   Puppy
                 </label>
-                <label>
+                <label
+                  className={this.checkAgeSelection('mature') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="mature"
@@ -59,7 +81,9 @@ export class PreferencesForm extends React.Component {
                   />
                   Mature
                 </label>
-                <label>
+                <label
+                  className={this.checkAgeSelection('elderly') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="elderly"
@@ -68,7 +92,9 @@ export class PreferencesForm extends React.Component {
                   />
                   Elderly
                 </label>
-                <label>
+                <label
+                  className={this.checkAgeSelection('any') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="any"
@@ -80,7 +106,9 @@ export class PreferencesForm extends React.Component {
             </div>
             <div className="radio">
                 Size Preference:
-                <label>
+                <label
+                  className={this.checkSizeSelection('small') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="small"
@@ -89,7 +117,9 @@ export class PreferencesForm extends React.Component {
                   />
                   Small
                 </label>
-                <label>
+                <label
+                  className={this.checkSizeSelection('medium') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="medium"
@@ -98,7 +128,9 @@ export class PreferencesForm extends React.Component {
                   />
                   Medium
                 </label>
-                <label>
+                <label
+                  className={this.checkSizeSelection('large') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="large"
@@ -107,7 +139,9 @@ export class PreferencesForm extends React.Component {
                   />
                   Large
                 </label>
-                <label>
+                <label
+                  className={this.checkSizeSelection('any') ? "selection" : null}
+                >
                   <input
                     type="radio"
                     value="any"
