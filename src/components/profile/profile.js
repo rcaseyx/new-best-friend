@@ -54,11 +54,11 @@ Profile.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    dogs: state.dogs,
-    savedDogs: state.savedDogs,
-    preferences: state.preferences,
-    position: state.position,
-    user: state.user
+    dogs: state.data.dogs,
+    savedDogs: state.data.savedDogs,
+    preferences: state.data.preferences,
+    position: state.data.position,
+    user: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(Profile);

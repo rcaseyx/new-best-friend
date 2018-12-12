@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addDog, incrementPosition, resetPosition} from '../../actions';
+import {addDog, incrementPosition, resetPosition} from '../../actions/actions';
 import './friend-search.css';
 import DogCard from '../dog-card/dog-card';
 
@@ -78,11 +78,11 @@ FriendSearch.defaultProps = {
 }
 
 const mapStateToProps = state => ({
-  dogs: state.dogs,
-  savedDogs: state.savedDogs,
-  preferences: state.preferences,
-  position: state.position,
-  user: state.user
+  dogs: state.data.dogs,
+  savedDogs: state.data.savedDogs,
+  preferences: state.data.preferences,
+  position: state.data.position,
+  user: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(FriendSearch);

@@ -1,5 +1,24 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {reducer as formReducer} from 'redux-form';
+import thunk from 'redux-thunk';
+import {loadAuthToken} from './local-storage';
+import authReducer from './reducers/auth';
+import { nbfReducer } from './reducers/nbfReducer';
+import {setAuthToken} from './actions/auth';
 
-import { nbfReducer } from './reducers';
+const store = createStore(
+    combineReducers({
+        form: formReducer,
+        auth: authReducer,
+        data: nbfReducer
+    }),
+    applyMiddleware(thunk)
+);
 
-export default createStore(nbfReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const authToken = loadAuthToken();
+if (authToken) {
+    const token = authToken;
+    store.dispatch(setAuthToken(token));
+}
+
+export default store;

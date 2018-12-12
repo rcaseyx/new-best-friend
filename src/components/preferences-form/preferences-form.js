@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateAge, updateSize, updatePreferences} from '../../actions';
+import {updateAge, updateSize, updatePreferences} from '../../actions/actions';
 import './preferences-form.css';
 
 export class PreferencesForm extends React.Component {
@@ -162,11 +162,11 @@ export class PreferencesForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    dogs: state.dogs,
-    savedDogs: state.savedDogs,
-    preferences: state.preferences,
-    position: state.position,
-    user: state.user
+    dogs: state.data.dogs,
+    savedDogs: state.data.savedDogs,
+    preferences: state.data.preferences,
+    position: state.data.position,
+    user: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(PreferencesForm);

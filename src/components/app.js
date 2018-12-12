@@ -5,6 +5,7 @@ import Home from './home/home';
 import Profile from './profile/profile';
 import NavBar from './navbar/navbar';
 import FriendSearch from './friend-search/friend-search';
+import SignupPage from './signup-page/signup-page';
 
 export default function App(props) {
     return (
@@ -13,12 +14,9 @@ export default function App(props) {
               <main>
                   <Route path="/" component={NavBar} />
                   <Route exact path="/" component={Home} />
-                  <Route
-                    exact
-                    path="/profile"
-                    component={Profile}
-                  />
+                  <Route exact path="/profile" component={Profile} />
                   <Route exact path="/search" component={FriendSearch} />
+                  <Route exact path="/signup" component={SignupPage} />
               </main>
           </div>
       </Router>
