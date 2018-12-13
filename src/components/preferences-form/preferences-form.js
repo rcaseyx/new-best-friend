@@ -162,11 +162,7 @@ export class PreferencesForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    dogs: state.data.dogs,
-    savedDogs: state.data.savedDogs,
-    preferences: state.data.preferences,
-    position: state.data.position,
-    user: state.auth.currentUser
+    preferences: state.auth.currentUser.preferences
 });
 
 export default connect(mapStateToProps)(PreferencesForm);

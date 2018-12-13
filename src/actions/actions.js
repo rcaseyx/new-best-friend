@@ -25,12 +25,12 @@ export const addDog = dog => (dispatch, getState) => {
     const userId = getState().auth.currentUser.id;
     const newSavedDogs = getState().auth.currentUser.savedDogs;
     newSavedDogs.push(dog);
-    console.log(newSavedDogs);
 
     return fetch(`${API_BASE_URL}/users/${userId}`, {
         method: 'PUT',
         headers: {
-            Authorization: `Bearer ${authToken}`
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${authToken}`
         },
         body: JSON.stringify({
             savedDogs: newSavedDogs
@@ -38,9 +38,9 @@ export const addDog = dog => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({savedDogs}) => dispatch(addDogSuccess(savedDogs)))
+        .then(res => dispatch(addDogSuccess(res.savedDogs)))
         .catch(err => {
-            dispatch(fetchDogsError(err));
+            dispatch(addDogError(err));
         });
 }
 
@@ -83,7 +83,7 @@ export const fetchDogs = (age, size) => (dispatch, getState) => {
     return fetch(`${API_BASE_URL}/dogs/filtered/${age}/${size}`, {
         method: 'GET',
         headers: {
-            Authorization: `Bearer ${authToken}`
+            "Authorization": `Bearer ${authToken}`
         }
     })
         .then(res => normalizeResponseErrors(res))
@@ -91,5 +91,34 @@ export const fetchDogs = (age, size) => (dispatch, getState) => {
         .then(({dogs}) => dispatch(fetchDogsSuccess(dogs)))
         .catch(err => {
             dispatch(fetchDogsError(err));
+        });
+};
+
+export const FETCH_SAVED_DOGS_SUCCESS = 'FETCH_SAVED_DOGS_SUCCESS';
+export const fetchSavedDogsSuccess = dogs => ({
+    type: FETCH_SAVED_DOGS_SUCCESS,
+    dogs
+});
+
+export const FETCH_SAVED_DOGS_ERROR = 'FETCH_SAVED_DOGS_ERROR';
+export const fetchSavedDogsError = error => ({
+    type: FETCH_SAVED_DOGS_ERROR,
+    error
+});
+
+export const fetchSavedDogs = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    const id = getState().auth.currentUser.id;
+    return fetch(`${API_BASE_URL}/users/${id}`, {
+        method: 'GET',
+        headers: {
+            "Authorization": `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(res => dispatch(fetchSavedDogsSuccess(res)))
+        .catch(err => {
+            dispatch(fetchSavedDogsError(err));
         });
 };
