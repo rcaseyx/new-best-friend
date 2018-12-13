@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addDog, incrementPosition, resetPosition} from '../../actions/actions';
+import {Redirect} from 'react-router-dom';
+import {addDog, incrementPosition, resetPosition, fetchDogs} from '../../actions/actions';
 import './friend-search.css';
 import DogCard from '../dog-card/dog-card';
 
@@ -13,6 +14,9 @@ export class FriendSearch extends React.Component {
 
     componentWillMount() {
       this.resetPosition();
+      const age = this.props.preferences.age;
+      const size = this.props.preferences.size;
+      this.props.dispatch(fetchDogs(age, size));
     }
 
     addDog(dog) {
@@ -28,9 +32,8 @@ export class FriendSearch extends React.Component {
     }
 
     onLikeClick() {
-      this.addDog(this.props.dogs[this.props.position]);
+      this.addDog(this.props.dogs[this.props.position].id);
       this.incrementPosition();
-      //send dog to savedDogs
     }
 
     onNextClick() {
@@ -38,6 +41,9 @@ export class FriendSearch extends React.Component {
     }
 
     render() {
+      if (!(this.props.loggedIn)) {
+          return <Redirect to="/" />
+      }
       if (this.props.position < this.props.dogs.length) {
         return (
           <div className="search-container">
@@ -79,10 +85,10 @@ FriendSearch.defaultProps = {
 
 const mapStateToProps = state => ({
   dogs: state.data.dogs,
-  savedDogs: state.data.savedDogs,
-  preferences: state.data.preferences,
+  savedDogs: state.auth.currentUser.savedDogs,
+  preferences: state.auth.currentUser.preferences,
   position: state.data.position,
-  user: state.auth.currentUser
+  loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(FriendSearch);

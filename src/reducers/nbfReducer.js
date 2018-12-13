@@ -1,50 +1,14 @@
 import * as actions from '../actions/actions';
 
 const initialState = {
-    dogs: [
-      {
-        id: 1,
-        name: 'Carl',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-        age: 'Puppy',
-        size: 'Large',
-        link: 'www.aspca.org'
-      },
-      {
-        id: 2,
-        name: 'Woof',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-        age: 'Mature',
-        size: 'Small',
-        link: 'www.aspca.org'
-      },
-      {
-        id: 3,
-        name: 'Warf',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-        age: 'Elderly',
-        size: 'Medium',
-        link: 'www.aspca.org'
-      },
-      {
-        id: 4,
-        name: 'Spock',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_lCw0jlf5A-EJwYWQ8yi0a8TyibY6Z4TvJ-pewFaG8A2AYJAmGw',
-        age: 'Puppy',
-        size: 'Small',
-        link: 'www.aspca.org'
-      }
-    ],
+    dogs: [],
     savedDogs: [],
     preferences: {
-      age: 'any',
-      size: 'any'
+      age: '',
+      size: ''
     },
     position: 0,
-    user: {
-      username: 'testing',
-      firstName: 'Test'
-    }
+    error: null
 };
 
 export const nbfReducer = (state=initialState, action) => {
@@ -53,9 +17,9 @@ export const nbfReducer = (state=initialState, action) => {
         console.log(action.age);
         console.log(action.size);
     }
-    else if (action.type === actions.ADD_DOG) {
+    else if (action.type === actions.ADD_DOG_SUCCESS) {
         return Object.assign({}, state, {
-            savedDogs: [...state.savedDogs, action.dog]
+            savedDogs: action.savedDogs
         });
     }
     else if (action.type === actions.INCREMENT_POSITION) {
@@ -84,6 +48,23 @@ export const nbfReducer = (state=initialState, action) => {
               ...state.preferences,
               size: action.size
           }
+        });
+    }
+    else if (action.type === actions.FETCH_DOGS_SUCCESS) {
+        // let allDogs = action.dogs;
+        // let savedDogs = state.auth.currentUser.savedDogs;
+        // function isSaved(dog) {
+        //     return !savedDogs.includes(dog.id);
+        // };
+        // const displayDogs = allDogs.filter(isSaved);
+        return Object.assign({}, state, {
+            dogs: action.dogs,
+            error: null
+        });
+    }
+    else if (action.type === actions.FETCH_DOGS_ERROR) {
+        return Object.assign({}, state, {
+            error: action.error
         });
     }
     return state;

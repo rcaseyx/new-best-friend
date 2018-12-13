@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './profile.css';
 
 import PreferencesForm from '../preferences-form/preferences-form';
@@ -8,6 +8,9 @@ import SavedDog from '../saved-dog/saved-dog';
 
 export class Profile extends React.Component {
     render() {
+      if (!(this.props.loggedIn)) {
+          return <Redirect to="/" />
+      }
       if (this.props.savedDogs.length > 0) {
         const dogs = this.props.savedDogs.map((dog, index) =>
             <div key={index}>
@@ -58,7 +61,8 @@ const mapStateToProps = state => ({
     savedDogs: state.data.savedDogs,
     preferences: state.data.preferences,
     position: state.data.position,
-    user: state.auth.currentUser
+    user: state.auth.currentUser,
+    loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(Profile);
