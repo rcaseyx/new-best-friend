@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {addDog, incrementPosition, resetPosition, fetchDogs} from '../../actions/actions';
+import {incrementPosition, resetPosition, fetchDogs} from '../../actions/actions';
+import {addDog} from '../../actions/users';
 import './friend-search.css';
 import DogCard from '../dog-card/dog-card';
 

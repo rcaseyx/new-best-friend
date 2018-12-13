@@ -34,7 +34,7 @@ export class Profile extends React.Component {
             </div>
             <div className="preferences-container">
               <h4>Your Preferences</h4>
-              <PreferencesForm age={this.props.preferences.age} size={this.props.preferences.size} />
+              <PreferencesForm />
             </div>
           </div>
         )

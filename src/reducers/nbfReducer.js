@@ -3,27 +3,13 @@ import * as actions from '../actions/actions';
 const initialState = {
     dogs: [],
     savedDogs: [],
-    preferences: {
-      age: '',
-      size: ''
-    },
     position: 0,
     savedDogObjs: [],
     error: null
 };
 
 export const nbfReducer = (state=initialState, action) => {
-    if (action.type === actions.UPDATE_PREFERENCES) {
-        //send to API
-        console.log(action.age);
-        console.log(action.size);
-    }
-    else if (action.type === actions.ADD_DOG_SUCCESS) {
-        return Object.assign({}, state, {
-            savedDogs: action.savedDogs
-        });
-    }
-    else if (action.type === actions.INCREMENT_POSITION) {
+    if (action.type === actions.INCREMENT_POSITION) {
         const position = state.position +1;
         return Object.assign({}, state, {
             position
@@ -33,22 +19,6 @@ export const nbfReducer = (state=initialState, action) => {
         const position = 0;
         return Object.assign({}, state, {
           position
-        });
-    }
-    else if (action.type === actions.UPDATE_AGE) {
-        return Object.assign({}, state, {
-          preferences: {
-              ...state.preferences,
-              age: action.age
-          }
-        });
-    }
-    else if (action.type === actions.UPDATE_SIZE) {
-        return Object.assign({}, state, {
-          preferences: {
-              ...state.preferences,
-              size: action.size
-          }
         });
     }
     else if (action.type === actions.FETCH_DOGS_SUCCESS) {

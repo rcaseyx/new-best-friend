@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateAge, updateSize, updatePreferences} from '../../actions/actions';
+import {updateAge, updateSize, updatePreferences} from '../../actions/users';
 import './preferences-form.css';
 
 export class PreferencesForm extends React.Component {
