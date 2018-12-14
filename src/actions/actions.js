@@ -33,11 +33,19 @@ export const fetchDogs = (age, size) => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({dogs}) => dispatch(fetchDogsSuccess(dogs)))
+        .then(({dogs}) => dispatch(filterDogs(dogs)))
         .catch(err => {
             dispatch(fetchDogsError(err));
         });
 };
+
+export const filterDogs = dogs => (dispatch, getState) => {
+    const savedDogs = getState().auth.currentUser.savedDogs;
+    let savedDogIds = [];
+    savedDogs.forEach(savedDog => savedDogIds.push(savedDog._id));
+    const filteredDogs = dogs.filter(dog => !savedDogIds.includes(dog.id));
+    dispatch(fetchDogsSuccess(filteredDogs));
+}
 
 export const FETCH_SAVED_DOGS_SUCCESS = 'FETCH_SAVED_DOGS_SUCCESS';
 export const fetchSavedDogsSuccess = dogs => ({

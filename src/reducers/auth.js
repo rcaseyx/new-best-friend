@@ -34,7 +34,6 @@ export default function reducer(state=initialState, action) {
         });
     }
     else if (action.type === AUTH_SUCCESS) {
-      console.log(action.currentUser);
         return Object.assign({}, state, {
             loading: false,
             currentUser: action.currentUser
