@@ -103,3 +103,9 @@ export const updateSize = size => ({
     type: UPDATE_SIZE,
     size
 });
+
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const setCurrentUser = user => ({
+    type: SET_CURRENT_USER,
+    user
+});

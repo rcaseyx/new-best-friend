@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
-import {clearAuthToken} from '../../local-storage';
+import {clearAuthToken, clearCurrentUser} from '../../local-storage';
 import './navbar.css';
 
 export class NavBar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
+        clearCurrentUser();
     }
 
     render() {

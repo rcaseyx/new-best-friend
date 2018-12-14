@@ -93,5 +93,11 @@ export default function reducer(state=initialState, action) {
             error: action.error
         });
     }
+    else if (action.type === actions.SET_CURRENT_USER) {
+        const user = JSON.parse(action.user);
+        return Object.assign({}, state, {
+            currentUser: user
+        });
+    }
     return state;
 }

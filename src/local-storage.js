@@ -13,3 +13,19 @@ export const clearAuthToken = () => {
         localStorage.removeItem('jwt');
     } catch (e) {}
 };
+
+export const loadCurrentUser = () => {
+    return localStorage.getItem('currentUser');
+};
+
+export const saveCurrentUser = currentUser => {
+    try {
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    } catch (e) {}
+};
+
+export const clearCurrentUser = () => {
+    try {
+        localStorage.removeItem('currentUser');
+    } catch (e) {}
+};

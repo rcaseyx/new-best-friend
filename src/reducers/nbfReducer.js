@@ -22,12 +22,6 @@ export const nbfReducer = (state=initialState, action) => {
         });
     }
     else if (action.type === actions.FETCH_DOGS_SUCCESS) {
-        // let allDogs = action.dogs;
-        // let savedDogs = state.auth.currentUser.savedDogs;
-        // function isSaved(dog) {
-        //     return !savedDogs.includes(dog.id);
-        // };
-        // const displayDogs = allDogs.filter(isSaved);
         return Object.assign({}, state, {
             dogs: action.dogs,
             error: null
