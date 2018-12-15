@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {updateAge, updateSize, updatePreferences} from '../../actions/users';
+import {updateLocalUser} from '../../actions/users';
 import './preferences-form.css';
 
 export class PreferencesForm extends React.Component {
@@ -23,6 +24,7 @@ export class PreferencesForm extends React.Component {
 
     updatePreferences(preferences) {
         this.props.dispatch(updatePreferences(preferences));
+        this.props.dispatch(updateLocalUser());
     }
 
     handleSubmit(event) {

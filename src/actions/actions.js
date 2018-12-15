@@ -70,7 +70,7 @@ export const fetchSavedDogs = () => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(res => dispatch(fetchSavedDogsSuccess(res)))
+        .then(res => dispatch(fetchSavedDogsSuccess(res.savedDogs)))
         .catch(err => {
             dispatch(fetchSavedDogsError(err));
         });

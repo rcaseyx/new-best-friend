@@ -2,6 +2,7 @@ import {SubmissionError} from 'redux-form';
 
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './errors';
+import {saveCurrentUser} from '../local-storage';
 
 export const signupUser = user => dispatch => {
     return fetch(`${API_BASE_URL}/users`, {
@@ -109,3 +110,22 @@ export const setCurrentUser = user => ({
     type: SET_CURRENT_USER,
     user
 });
+
+export const updateLocalUser = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    const userId = getState().auth.currentUser.id;
+
+    return fetch(`${API_BASE_URL}/users/${userId}`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(res => saveCurrentUser(res))
+        .catch(err => {
+            dispatch(addDogError(err));
+        });
+};
