@@ -11,6 +11,11 @@ export const resetPosition = () => ({
     type: RESET_POSITION
 });
 
+export const API_FETCH = 'API_FETCH';
+export const apiFetch = () => ({
+    type: API_FETCH
+});
+
 export const FETCH_DOGS_SUCCESS = 'FETCH_DOGS_SUCCESS';
 export const fetchDogsSuccess = dogs => ({
     type: FETCH_DOGS_SUCCESS,
@@ -24,6 +29,7 @@ export const fetchDogsError = error => ({
 });
 
 export const fetchDogs = (age, size) => (dispatch, getState) => {
+    dispatch(apiFetch());
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/dogs/filtered/${age}/${size}`, {
         method: 'GET',

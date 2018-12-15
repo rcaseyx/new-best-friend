@@ -53,7 +53,8 @@ export default function reducer(state=initialState, action) {
                     ...state.currentUser.preferences,
                     age: action.age
                 }
-            }
+            },
+            loading: false
         });
     }
     else if (action.type === actions.UPDATE_SIZE) {
@@ -64,7 +65,14 @@ export default function reducer(state=initialState, action) {
                     ...state.currentUser.preferences,
                     size: action.size
                 }
-            }
+            },
+            loading: false
+        });
+    }
+    else if (action.type === actions.API_REQUEST) {
+        return Object.assign({}, state, {
+            loading: true,
+            error: null
         });
     }
     else if (action.type === actions.UPDATE_PREFERENCES_SUCCESS) {
@@ -72,12 +80,14 @@ export default function reducer(state=initialState, action) {
             currentUser: {
                 ...state.currentUser,
                 preferences: action.preferences
-            }
+            },
+            loading: false
         });
     }
     else if (action.type === actions.UPDATE_PREFERENCES_ERROR) {
         return Object.assign({}, state, {
-            error: action.error
+            error: action.error,
+            loading: false
         });
     }
     else if (action.type === actions.ADD_DOG_SUCCESS) {
@@ -85,18 +95,21 @@ export default function reducer(state=initialState, action) {
             currentUser: {
                 ...state.currentUser,
                 savedDogs: action.savedDogs
-            }
+            },
+            loading: false
         });
     }
     else if (action.type === actions.ADD_DOG_ERROR) {
         return Object.assign({}, state, {
-            error: action.error
+            error: action.error,
+            loading: false
         });
     }
     else if (action.type === actions.SET_CURRENT_USER) {
         const user = JSON.parse(action.user);
         return Object.assign({}, state, {
-            currentUser: user
+            currentUser: user,
+            loading: false
         });
     }
     return state;

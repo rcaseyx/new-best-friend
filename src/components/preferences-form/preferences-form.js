@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {updateAge, updateSize, updatePreferences} from '../../actions/users';
 import {updateLocalUser} from '../../actions/users';
+import Loader from 'react-loader-spinner';
 import './preferences-form.css';
 
 export class PreferencesForm extends React.Component {
@@ -57,6 +58,16 @@ export class PreferencesForm extends React.Component {
     }
 
     render() {
+      if (this.props.loading) {
+          return (
+              <Loader
+                type="RevolvingDot"
+                color="#800000"
+                height="100"
+                width="100"
+              />
+          )
+      }
       return (
         <form onSubmit={this.handleSubmit}>
             <div className="radio">
@@ -164,7 +175,8 @@ export class PreferencesForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    preferences: state.auth.currentUser.preferences
+    preferences: state.auth.currentUser.preferences,
+    loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(PreferencesForm);

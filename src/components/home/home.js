@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import LoginForm from '../login-form/login-form';
+import Loader from 'react-loader-spinner';
 import './home.css';
 
 export class Home extends React.Component {
@@ -14,6 +15,18 @@ export class Home extends React.Component {
                   Don't have an account? <Link to="/signup">Sign up</Link>.
               </div>
             );
+        }
+        if (this.props.loading) {
+          return (
+              <div className="home">
+                  <Loader
+                    type="RevolvingDot"
+                    color="#800000"
+                    height="100"
+                    width="100"
+                  />
+              </div>
+          )
         }
         return (
           <div className="home">
@@ -29,7 +42,8 @@ export class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-      loggedIn: state.auth.currentUser !== null
+      loggedIn: state.auth.currentUser !== null,
+      loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(Home);

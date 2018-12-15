@@ -26,6 +26,11 @@ export const signupUser = user => dispatch => {
         });
 };
 
+export const API_REQUEST = 'API_REQUEST';
+export const apiRequest = () => ({
+    type: API_REQUEST
+});
+
 export const UPDATE_PREFERENCES_SUCCESS = 'UPDATE_PREFERENCES_SUCCESS';
 export const updatePreferencesSuccess = preferences => ({
     type: UPDATE_PREFERENCES_SUCCESS,
@@ -39,6 +44,7 @@ export const updatePreferencesError = error => ({
 });
 
 export const updatePreferences = preferences => (dispatch, getState) => {
+    dispatch(apiRequest());
     const authToken = getState().auth.authToken;
     const userId = getState().auth.currentUser.id;
     return fetch(`${API_BASE_URL}/users/${userId}`, {

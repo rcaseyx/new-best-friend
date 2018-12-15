@@ -6,15 +6,16 @@ import authReducer from './reducers/auth';
 import { nbfReducer } from './reducers/nbfReducer';
 import {setAuthToken} from './actions/auth';
 import {setCurrentUser} from './actions/users';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
     combineReducers({
         form: formReducer,
         auth: authReducer,
         data: nbfReducer
-    }),
-    applyMiddleware(thunk)
-);
+    }), composeWithDevTools(
+          applyMiddleware(thunk)
+));
 
 const authToken = loadAuthToken();
 if (authToken) {

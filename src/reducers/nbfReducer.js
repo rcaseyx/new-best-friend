@@ -5,7 +5,8 @@ const initialState = {
     savedDogs: [],
     position: 0,
     savedDogObjs: [],
-    error: null
+    error: null,
+    updating: false
 };
 
 export const nbfReducer = (state=initialState, action) => {
@@ -21,15 +22,23 @@ export const nbfReducer = (state=initialState, action) => {
           position
         });
     }
+    else if (action.type === actions.API_FETCH) {
+        return Object.assign({}, state, {
+            updating: true,
+            error: null
+        });
+    }
     else if (action.type === actions.FETCH_DOGS_SUCCESS) {
         return Object.assign({}, state, {
             dogs: action.dogs,
+            updating: false,
             error: null
         });
     }
     else if (action.type === actions.FETCH_DOGS_ERROR) {
         return Object.assign({}, state, {
-            error: action.error
+            error: action.error,
+            updating: false
         });
     }
     else if (action.type === actions.FETCH_SAVED_DOGS_SUCCESS) {

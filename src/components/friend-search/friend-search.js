@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {incrementPosition, resetPosition, fetchDogs} from '../../actions/actions';
 import {addDog} from '../../actions/users';
+import Loader from 'react-loader-spinner';
 import './friend-search.css';
 import DogCard from '../dog-card/dog-card';
 
@@ -44,6 +45,18 @@ export class FriendSearch extends React.Component {
     render() {
       if (!(this.props.loggedIn)) {
           return <Redirect to="/" />
+      }
+      if (this.props.updating) {
+          return (
+              <div className="search-container">
+                  <Loader
+                    type="RevolvingDot"
+                    color="#800000"
+                    height="100"
+                    width="100"
+                  />
+              </div>
+          )
       }
       if (this.props.position < this.props.dogs.length) {
         return (
@@ -89,6 +102,7 @@ const mapStateToProps = state => ({
   savedDogs: state.auth.currentUser.savedDogs,
   preferences: state.auth.currentUser.preferences,
   position: state.data.position,
+  updating: state.data.updating,
   loggedIn: state.auth.currentUser !== null
 });
 
