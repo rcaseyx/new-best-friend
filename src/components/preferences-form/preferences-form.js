@@ -62,7 +62,7 @@ export class PreferencesForm extends React.Component {
           return (
               <Loader
                 type="RevolvingDot"
-                color="#800000"
+                color="#D0DCE0"
                 height="100"
                 width="100"
               />
@@ -70,99 +70,102 @@ export class PreferencesForm extends React.Component {
       }
       return (
         <form onSubmit={this.handleSubmit}>
-            <div className="radio">
-                Age Preference:
-                <label
-                  className={this.checkAgeSelection('puppy') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="puppy"
-                    checked={this.props.preferences.age === "puppy"}
-                    onChange={this.handleAgeChange}
-                  />
-                  Puppy
-                </label>
-                <label
-                  className={this.checkAgeSelection('mature') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="mature"
-                    checked={this.props.preferences.age === "mature"}
-                    onChange={this.handleAgeChange}
-                  />
-                  Mature
-                </label>
-                <label
-                  className={this.checkAgeSelection('elderly') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="elderly"
-                    checked={this.props.preferences.age === "elderly"}
-                    onChange={this.handleAgeChange}
-                  />
-                  Elderly
-                </label>
-                <label
-                  className={this.checkAgeSelection('any') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="any"
-                    checked={this.props.preferences.age === "any"}
-                    onChange={this.handleAgeChange}
-                  />
-                  Any
-                </label>
-            </div>
-            <div className="radio">
-                Size Preference:
-                <label
-                  className={this.checkSizeSelection('small') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="small"
-                    checked={this.props.preferences.size === "small"}
-                    onChange={this.handleSizeChange}
-                  />
-                  Small
-                </label>
-                <label
-                  className={this.checkSizeSelection('medium') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="medium"
-                    checked={this.props.preferences.size === "medium"}
-                    onChange={this.handleSizeChange}
-                  />
-                  Medium
-                </label>
-                <label
-                  className={this.checkSizeSelection('large') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="large"
-                    checked={this.props.preferences.size === "large"}
-                    onChange={this.handleSizeChange}
-                  />
-                  Large
-                </label>
-                <label
-                  className={this.checkSizeSelection('any') ? "selection" : null}
-                >
-                  <input
-                    type="radio"
-                    value="any"
-                    checked={this.props.preferences.size === "any"}
-                    onChange={this.handleSizeChange}
-                  />
-                  Any
-                </label>
+            <h4>Your Preferences</h4>
+            <div className="radio-container">
+                <div className="radio">
+                    <p>Age</p>
+                    <label
+                      className={this.checkAgeSelection('puppy') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="puppy"
+                        checked={this.props.preferences.age === "puppy"}
+                        onChange={this.handleAgeChange}
+                      />
+                      Puppy
+                    </label>
+                    <label
+                      className={this.checkAgeSelection('mature') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="mature"
+                        checked={this.props.preferences.age === "mature"}
+                        onChange={this.handleAgeChange}
+                      />
+                      Mature
+                    </label>
+                    <label
+                      className={this.checkAgeSelection('elderly') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="elderly"
+                        checked={this.props.preferences.age === "elderly"}
+                        onChange={this.handleAgeChange}
+                      />
+                      Elderly
+                    </label>
+                    <label
+                      className={this.checkAgeSelection('any') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="any"
+                        checked={this.props.preferences.age === "any"}
+                        onChange={this.handleAgeChange}
+                      />
+                      Any
+                    </label>
+                </div>
+                <div className="radio">
+                    <p>Size</p>
+                    <label
+                      className={this.checkSizeSelection('small') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="small"
+                        checked={this.props.preferences.size === "small"}
+                        onChange={this.handleSizeChange}
+                      />
+                      Small
+                    </label>
+                    <label
+                      className={this.checkSizeSelection('medium') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="medium"
+                        checked={this.props.preferences.size === "medium"}
+                        onChange={this.handleSizeChange}
+                      />
+                      Medium
+                    </label>
+                    <label
+                      className={this.checkSizeSelection('large') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="large"
+                        checked={this.props.preferences.size === "large"}
+                        onChange={this.handleSizeChange}
+                      />
+                      Large
+                    </label>
+                    <label
+                      className={this.checkSizeSelection('any') ? "selection" : "base-label"}
+                    >
+                      <input
+                        type="radio"
+                        value="any"
+                        checked={this.props.preferences.size === "any"}
+                        onChange={this.handleSizeChange}
+                      />
+                      Any
+                    </label>
+                </div>
             </div>
             <input
               type="submit"

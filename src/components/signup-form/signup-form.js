@@ -4,6 +4,7 @@ import {signupUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import Input from '../input/input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
+import './signup-form.css';
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
@@ -19,7 +20,7 @@ export class SignupForm extends React.Component {
     render() {
         return (
             <form
-                className="login"
+                className="signup-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>

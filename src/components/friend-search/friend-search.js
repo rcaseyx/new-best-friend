@@ -51,7 +51,7 @@ export class FriendSearch extends React.Component {
               <div className="search-container">
                   <Loader
                     type="RevolvingDot"
-                    color="#800000"
+                    color="#D0DCE0"
                     height="100"
                     width="100"
                   />

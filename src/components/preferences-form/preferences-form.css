@@ -1,11 +1,21 @@
-.radio {
-  display: block;
-  padding: 5px;
+.radio-container {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 20%;
+  text-align: center;
+}
+
+.radio {
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  margin-left: 5%;
+  margin-right: 8%;
+  width: 25%;
+}
+
+.radio p {
+  margin-left: 35%;
+  margin-right: 20%;
 }
 
 .radio input {
@@ -17,31 +27,57 @@
   width: 1px;
 }
 
-.radio label {
-  border: 1px solid white;
+.base-label {
+  border: 2px solid #000D11;
   display: block;
   height: 100%;
   width: 100%;
   padding: 10px 10px 10px 10px;
   cursor: pointer;
-  color: black;
-  vertical-align: middle;
+  color: #052E3E;
+  background-color: #D0DCE0;
+  margin: 2px;
 }
 
 .radio label:hover {
-  background-color: black;
-  color: white;
+  background-color: #26596A;
+  color: #D0DCE0;
   transition: all .5s ease-in-out;
 }
 
 .radio label:active {
   opacity: .4;
-  background-color: black;
-  color: green;
-  transition: 0s;
+  background-color: #000D11;
 }
 
 .selection {
-  background-color: green;
-  opacity: .8;
+  background-color: #000D11;
+  border: 2px solid #000D11;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  color: #D0DCE0;
+  margin: 2px;
+}
+
+.update-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  width: 40%;
+  background-color: #26596A;
+  border: 3px solid #000D11;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #D0DCE0;
+  padding: 5px;
+}
+
+.update-button:hover {
+  background-color: #000D11;
+  transition: .5s ease;
 }

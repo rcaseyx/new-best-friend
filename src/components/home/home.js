@@ -21,7 +21,7 @@ export class Home extends React.Component {
               <div className="home">
                   <Loader
                     type="RevolvingDot"
-                    color="#800000"
+                    color="#D0DCE0"
                     height="100"
                     width="100"
                   />
@@ -32,8 +32,22 @@ export class Home extends React.Component {
           <div className="home">
               <div className="about">
                   <p>New Best Friend allows users to view available rescue
-                  dogs for adoption. Dogs are shown based on preferences
-                  set by the user. More info later.</p>
+                  dogs for adoption. Users can set preferences on size and age
+                  in their profile, then view dogs based on those preferences.</p>
+                  <a
+                    href="https://www.rocketdogrescue.org/learn/why-rescue/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Why rescue?
+                  </a>
+                  <a
+                    href="http://athenscaninerescue.com/adoption-procedures/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn about adoption procedures.
+                  </a>
               </div>
               {loginForm}
           </div>

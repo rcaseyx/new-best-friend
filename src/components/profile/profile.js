@@ -33,7 +33,6 @@ export class Profile extends React.Component {
               </div>
             </div>
             <div className="preferences-container">
-              <h4>Your Preferences</h4>
               <PreferencesForm />
             </div>
           </div>
@@ -46,7 +45,6 @@ export class Profile extends React.Component {
               Visit <Link to="/search">Find a Friend</Link> to get started!
             </div>
             <div className="preferences-container">
-              <h4>Your Preferences</h4>
               <PreferencesForm />
             </div>
           </div>

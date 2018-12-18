@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
 import SignupForm from '../signup-form/signup-form';
+import './signup-page.css';
 
 export function SignupPage(props) {
     if (props.loggedIn) {

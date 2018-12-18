@@ -7,10 +7,9 @@ export default function DogCard(props) {
           <img src={props.image} alt={props.name} />
           <div className="info">
               <h3>{props.name}</h3>
-              <p>{props.size}</p>
-              <p>{props.age}</p>
+              <p>{props.about}</p>
               <p><a
-                href={props.link}
+                href={props.url}
                 target="_blank"
                 rel="noopener noreferrer"
               >

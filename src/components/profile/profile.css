@@ -2,12 +2,58 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #D0DCE0;
+  width: 60%;
+}
+
+.saved-dogs-container {
+  background-color: #052E3E;
+  border: 2px solid #000D11;
+  border-radius: 10px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
 }
 
 .saved-dogs {
   height: 350px;
-  width: 350px;
+  width: 70%;
   overflow-y: scroll;
   margin-left: auto;
   margin-right: auto;
+  background-color: #000D11;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.preferences-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #052E3E;
+  border: 2px solid #000D11;
+  border-radius: 10px;
+  width: 70%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+  .profile {
+    width: 100%;
+  }
+
+  .saved-dogs-container {
+    width: 90%;
+  }
+
+  .preferences-container {
+    width: 90%;
+  }
 }

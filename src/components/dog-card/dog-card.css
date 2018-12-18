@@ -1,21 +1,30 @@
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 40%;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px;
+  padding: 20px;
   left: 30%;
+  color: #D0DCE0;
+  background-color: #052E3E;
 }
 
 .card img {
-  border-radius: 5px 5px 0 0;
+  border-radius: 10px;
+  width: 80%;
 }
 
 .card a {
   text-decoration: none;
-  color: black;
+  color: #D0DCE0;
+  font-size: 20px;
+}
+
+.card a:hover {
+  color: #26596A;
+  transition: .5s ease;
 }
 
 .info {
@@ -24,4 +33,12 @@
 
 .info ul {
   list-style-type: none;
+}
+
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+  .card {
+    width: 90%;
+  }
 }

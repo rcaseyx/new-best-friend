@@ -1,10 +1,25 @@
 .dog {
-  width: 100%;
+  width: 80%;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 5%;
+  margin-bottom: 10px;
+}
+
+.dog h5 {
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .dog img {
-  width: 50%;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.dog img:hover {
+  opacity: .5;
+  transition: .5s ease;
 }

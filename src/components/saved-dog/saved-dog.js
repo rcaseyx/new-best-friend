@@ -5,7 +5,9 @@ export default function SavedDog(props) {
     return (
         <div className="dog">
             <h5>{props.name}</h5>
-            <img src={props.image} alt={props.name} />
+            <a href={props.url} target="_blank" rel="noopener noreferrer">
+                <img src={props.image} alt={props.name} />
+            </a>
         </div>
     );
 };

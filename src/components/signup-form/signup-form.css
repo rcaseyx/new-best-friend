@@ -1,21 +1,20 @@
-.login {
+.signup-form {
   margin-left: auto;
   margin-right: auto;
   background-color: #052E3E;
   color: #D0DCE0;
-  width: 30%;
+  width: 40%;
   border: 2px solid #000D11;
   border-radius: 10px;
   padding: 10px;
-  margin-bottom: 10px;
 }
 
-.login input {
+.signup-form input {
   font-size: 20px;
-  margin: 5px;
+  margin: 10px;
 }
 
-.login button {
+.signup-form button {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -30,55 +29,31 @@
   padding: 5px;
 }
 
-.login button:hover {
+.signup-form button:hover {
   background-color: #000D11;
   transition: .5s ease;
 }
 
-.login-container a {
-  color: #D0DCE0;
+.form-error {
+  color: red;
 }
 
-.about {
-  width: 30%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.about a {
-  color: #D0DCE0;
-  text-decoration: none;
-  display: block;
-  margin: 10px;
-  font-size: 20px;
-}
-
-.about a:hover {
-  text-decoration: underline;
-  transition: .5s ease;
+.form-warning {
+  color: red;
 }
 
 @media only screen
 and (min-width : 320px)
 and (max-width : 480px) {
-  .login {
+  .signup-form {
     width: 90%;
   }
 
-  .login input {
+  .signup-form input {
     font-size: 10px;
   }
 
-  .login button {
+  .signup-form button {
     font-size: 10px;
-  }
-
-  .about {
-    width: 100%;
-  }
-
-  .about a {
-    font-size: 15px;
   }
 }
