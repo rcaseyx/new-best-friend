@@ -7,6 +7,6 @@ deploy:
   provider: heroku
   api_key:
     secure: VSZ5iq8P2r6JMKuj/b67LFivyfT6mlDMnMD6Eom7m+QlyXySbmuYoSaII9R7DHWXVOoSm4undTY2onoUrEQfeIfSLRhpgTDcnUyqCGNwfrLIp0Hn2H8aedVnsTFw+qUp64FUOXluUsguK7Dd4Sb5hwdAPO0dbKY9wB+VbLJDOJSIziu5vUKYZYDMkHUpDvoHV1eH3iJEqT41J1SP0KFuk0/skVg36Bear/BX3UHZH0rWQyvS0WUpc9SYBOeSHUR+gEYKXY3dPilzbJ1TTeMLPm5+ckqWskyEYbM6fXN5YdLfmffP7ohu+59bGTyicc2N+W5xwz/funlbVMZqT/8jf4wbPCwWcJdvA9u648WQzX1boXxCLIihVFNFR3d/vWU/kowi/4js8E23LWK2rl3fPOV4OzNKBoQwNzvNLrY+hmC6WcGOusctUYY7o4W3CJIRqjpR1nxV89dxBsSy0bnJzey+JXKAbNiN8q/xuCZxK0Sy4S2I1CRK08YRKL7jcGEvKxG8004IA/+rlO3zlSqhgGAzB7LVpmKYFWrvwJfJM9HzN/V4YYxzeRovoWoic0cOj5cjf2UUyZ74k1x6L7F45mH/UVeYuaXi+5N+B912/2qd3U5mYsI/iyIsDoITFzlfUraFSaKctYrK+q15YEu6foqNT3SzLRnpJ0Z/sp4g+6A=
-  app: shrouded-headland-53344
+  app: new-best-friend
   on:
     repo: rcaseyx/new-best-friend
