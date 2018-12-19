@@ -24,6 +24,7 @@
 
 .card a:hover {
   color: #26596A;
+  text-decoration: underline;
   transition: .5s ease;
 }
 

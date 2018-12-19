@@ -18,6 +18,10 @@
   padding: 5px;
 }
 
+.saved-dogs-container a {
+  color: #D0DCE0;
+}
+
 .saved-dogs {
   height: 350px;
   width: 70%;
