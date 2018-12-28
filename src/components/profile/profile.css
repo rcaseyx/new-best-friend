@@ -8,6 +8,10 @@
   width: 60%;
 }
 
+.profile a {
+  text-decoration: none;
+}
+
 .saved-dogs-container {
   background-color: #052E3E;
   border: 2px solid #000D11;
@@ -44,6 +48,26 @@
   width: 70%;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.delete-link {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  width: 40%;
+  background-color: #26596A;
+  border: 3px solid #000D11;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #D0DCE0;
+  padding: 5px;
+}
+
+.delete-link:hover {
+  background-color: #000D11;
+  transition: .5s ease;
 }
 
 @media only screen

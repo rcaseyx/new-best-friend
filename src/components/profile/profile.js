@@ -35,6 +35,9 @@ export class Profile extends React.Component {
             <div className="preferences-container">
               <PreferencesForm />
             </div>
+            <Link to="/delete">
+                <button className="delete-link">Delete Account</button>
+            </Link>
           </div>
         )
       } else {
@@ -47,6 +50,9 @@ export class Profile extends React.Component {
             <div className="preferences-container">
               <PreferencesForm />
             </div>
+            <Link to="/delete">
+                <button className="delete-link">Delete Account</button>
+            </Link>
           </div>
         )
       }

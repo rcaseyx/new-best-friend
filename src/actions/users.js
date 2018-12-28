@@ -135,3 +135,19 @@ export const updateLocalUser = () => (dispatch, getState) => {
             dispatch(addDogError(err));
         });
 };
+
+export const deleteAccount = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    const userId = getState().auth.currentUser.id;
+
+    return fetch(`${API_BASE_URL}/users/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            "Authorization": `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .catch(err => {
+            console.error(err);
+        });
+};
