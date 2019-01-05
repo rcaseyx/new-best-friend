@@ -1,44 +1,109 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# New Best Friend
 
-## Available Scripts
+_Rescue the perfect dog for you_
 
-In the project directory, you can run:
+## Live App
+---
+You can view a live version of the application [here](https://new-best-friend.herokuapp.com "New Best Friend").
 
-### `npm start`
+Login with the following test user:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| Username | Password |
+|:--------:|:--------:|
+|testuser12|testuser12|
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Or feel free to create your own user!
 
-### `npm test`
+## Screenshots
+---
+### Landing Page
+![Landing Page](./public/images/landingpage.png "Landing Page")
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users will see this page upon logging in. It provides a quick overview of what the app does, as well as helpful links about the adoption process and why users should always rescue.
 
-### `npm run build`
+### Find a Friend Page
+![Find a Friend Page](./public/images/findfriend.png "Find a Friend Page")
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This page displays available dogs to be rescued, based on the user's preferences. Each dog will have a photo, their name, and a short "About" section, as well as a link to learn more information. Links will lead users to the dog's page on the [Athens Canine Rescue](http://athenscaninerescue.com/) website.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Clicking the green checkmark button will add the dog to the user's "Saved Dogs" list so they can view that dog again later. The next button moves the user to the next available dog.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Profile Page
+![Profile Page 1](./public/images/profile1.png)
+![Profile Page 2](./public/images/profile2.png)
 
-### `npm run eject`
+This page allows users to view all the dogs they have saved. Clicking the dog's image will take the user to that dog's page on the [Athens Canine Rescue](http://athenscaninerescue.com/) website.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Users can also update their preferences from this page. Simply select your preferences, then click "Update" to save.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Should they feel the need, users can also delete their account from this page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## API Documentation
+---
+The _New Best Friend_ API is a relatively simple API containing two major endpoints: one for dogs, and one for users. All endpoints (except account creation and login) require a valid JWT.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### /dogs
 
-## Learn More
+In it's current state, the dogs endpoint accepts `GET` request types. Requests can include the following parameters:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`dogs/<dog_id>`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+or
+
+`dogs/<age_preference>/<size_preference>`
+
+The second option allows for filtering based on user preferences. This filtering is done on the backend to improve frontend performance, rather than trying to filter in the React code.
+
+### /users
+
+The users endpoint can currently accept the following request types:
+
+* `POST`
+* `GET`
+* `DELETE`
+
+`POST` requests to the endpoint create new users. These requests require the following fields in the request body:
+
+*  `username`
+*  `password`
+
+Other optional fields include `firstName` and `lastName`.
+
+`GET` requests must include the user ID in the parameters. This is used to grab individual user information.
+
+`DELETE` requests must also include the user ID in the parameters. This will remove the user from the database.
+
+## Future Iterations
+---
+In the future, I'd like to expand _New Best Friend_ to be more comprehensive.
+
+Ideally, a web scraper would be set up to grab dog data from multiple rescue sites and store it in the database. This data would include the dogs location, likely by zip code.
+
+With this new data, I'd set up an additional preference for "X Miles Near Zip Code XXXXX". This would allow users to find dogs near them, no matter where they are located.
+
+Another feature I'd like to implement is a separate login for rescue organizations. These organizations would set "Organization" accounts that would grant them special privileges within the API, including the ability to `POST` new dogs for adoption. This could also lead to a "Contact the Rescue" feature for users.
+
+## Technology Used
+---
+| Frontend |
+| :------: |
+| [React](https://reactjs.org/) |
+| [Redux](https://redux.js.org/) |
+| [Redux-Form](https://redux-form.com/8.1.0/)|
+| [React-Loader-Spinner](https://www.npmjs.com/package/react-loader-spinner) |
+| [JWT-decode](https://www.npmjs.com/package/jwt-decode) |
+| [Enzyme](https://airbnb.io/enzyme/) |
+
+| Backend |
+| :-----: |
+| [NodeJs](https://nodejs.org/en/about/) |
+| [Express](https://expressjs.com/) |
+| [MongoDb](https://www.mongodb.com/) |
+| [Mongoose](https://mongoosejs.com/) |
+| [JWT](https://jwt.io/) |
+| [Passport](http://www.passportjs.org/) |
+| [bcryptjs](https://www.npmjs.com/package/bcryptjs) |
+| [Morgan](https://www.npmjs.com/package/morgan/v/1.1.1) |
+| [Faker](https://www.npmjs.com/package/faker) |
+| [Mocha](https://mochajs.org/) |
+| [Chai](https://www.chaijs.com/) |
