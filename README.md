@@ -3,7 +3,7 @@
 _Rescue the perfect dog for you_
 
 ## Live App
----
+
 You can view a live version of the application [here](https://new-best-friend.herokuapp.com "New Best Friend").
 
 Login with the following test user:
@@ -15,7 +15,7 @@ Login with the following test user:
 Or feel free to create your own user!
 
 ## Screenshots
----
+
 ### Landing Page
 ![Landing Page](./public/images/landingpage.png "Landing Page")
 
@@ -39,8 +39,8 @@ Users can also update their preferences from this page. Simply select your prefe
 Should they feel the need, users can also delete their account from this page.
 
 ## API Documentation
----
-The _New Best Friend_ API is a relatively simple API containing two major endpoints: one for dogs, and one for users. All endpoints (except account creation and login) require a valid JWT. The API's repo can be viewed [here](https://github.com/rcaseyx/nbfapi). 
+
+The _New Best Friend_ API is a relatively simple API containing two major endpoints: one for dogs, and one for users. All endpoints (except account creation and login) require a valid JWT. The API's repo can be viewed [here](https://github.com/rcaseyx/nbfapi).
 
 ### /dogs
 
@@ -74,7 +74,7 @@ Other optional fields include `firstName` and `lastName`.
 `DELETE` requests must also include the user ID in the parameters. This will remove the user from the database.
 
 ## Future Iterations
----
+
 In the future, I'd like to expand _New Best Friend_ to be more comprehensive.
 
 Ideally, a web scraper would be set up to grab dog data from multiple rescue sites and store it in the database. This data would include the dogs location, likely by zip code.
@@ -84,7 +84,7 @@ With this new data, I'd set up an additional preference for "X Miles Near Zip Co
 Another feature I'd like to implement is a separate login for rescue organizations. These organizations would set "Organization" accounts that would grant them special privileges within the API, including the ability to `POST` new dogs for adoption. This could also lead to a "Contact the Rescue" feature for users.
 
 ## Technology Used
----
+
 | Frontend |
 | :------: |
 | [React](https://reactjs.org/) |
@@ -93,7 +93,6 @@ Another feature I'd like to implement is a separate login for rescue organizatio
 | [React-Loader-Spinner](https://www.npmjs.com/package/react-loader-spinner) |
 | [JWT-decode](https://www.npmjs.com/package/jwt-decode) |
 | [Enzyme](https://airbnb.io/enzyme/) |
-
 | Backend |
 | :-----: |
 | [NodeJs](https://nodejs.org/en/about/) |
