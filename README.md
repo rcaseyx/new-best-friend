@@ -40,7 +40,7 @@ Should they feel the need, users can also delete their account from this page.
 
 ## API Documentation
 ---
-The _New Best Friend_ API is a relatively simple API containing two major endpoints: one for dogs, and one for users. All endpoints (except account creation and login) require a valid JWT.
+The _New Best Friend_ API is a relatively simple API containing two major endpoints: one for dogs, and one for users. All endpoints (except account creation and login) require a valid JWT. The API's repo can be viewed [here](https://github.com/rcaseyx/nbfapi). 
 
 ### /dogs
 
