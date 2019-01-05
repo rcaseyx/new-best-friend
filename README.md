@@ -85,24 +85,23 @@ Another feature I'd like to implement is a separate login for rescue organizatio
 
 ## Technology Used
 
-| Frontend |
-| :------: |
-| [React](https://reactjs.org/) |
-| [Redux](https://redux.js.org/) |
-| [Redux-Form](https://redux-form.com/8.1.0/)|
-| [React-Loader-Spinner](https://www.npmjs.com/package/react-loader-spinner) |
-| [JWT-decode](https://www.npmjs.com/package/jwt-decode) |
-| [Enzyme](https://airbnb.io/enzyme/) |
-| Backend |
-| :-----: |
-| [NodeJs](https://nodejs.org/en/about/) |
-| [Express](https://expressjs.com/) |
-| [MongoDb](https://www.mongodb.com/) |
-| [Mongoose](https://mongoosejs.com/) |
-| [JWT](https://jwt.io/) |
-| [Passport](http://www.passportjs.org/) |
-| [bcryptjs](https://www.npmjs.com/package/bcryptjs) |
-| [Morgan](https://www.npmjs.com/package/morgan/v/1.1.1) |
-| [Faker](https://www.npmjs.com/package/faker) |
-| [Mocha](https://mochajs.org/) |
-| [Chai](https://www.chaijs.com/) |
+### Frontend
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [Redux-Form](https://redux-form.com/8.1.0/)
+* [React-Loader-Spinner](https://www.npmjs.com/package/react-loader-spinner)
+* [JWT-decode](https://www.npmjs.com/package/jwt-decode)
+* [Enzyme](https://airbnb.io/enzyme/)
+
+### Backend
+* [NodeJs](https://nodejs.org/en/about/)
+* [Express](https://expressjs.com/)
+* [MongoDb](https://www.mongodb.com/)
+* [Mongoose](https://mongoosejs.com/)
+* [JWT](https://jwt.io/)
+* [Passport](http://www.passportjs.org/)
+* [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+* [Morgan](https://www.npmjs.com/package/morgan/v/1.1.1)
+* [Faker](https://www.npmjs.com/package/faker)
+* [Mocha](https://mochajs.org/)
+* [Chai](https://www.chaijs.com/) 
