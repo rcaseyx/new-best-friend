@@ -8,3 +8,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.demo-account {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-account p {
+  display: block;
+}

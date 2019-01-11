@@ -13,6 +13,10 @@ export class Home extends React.Component {
               <div className="login-container">
                   <LoginForm />
                   Don't have an account? <Link to="/signup">Sign up</Link>.
+                  <div className="demo-account">
+                      <p>Username: demoaccount</p>
+                      <p>Password: demoaccount</p>
+                  </div>
               </div>
             );
         }
