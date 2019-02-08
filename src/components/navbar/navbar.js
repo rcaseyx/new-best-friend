@@ -42,14 +42,14 @@ export class NavBar extends React.Component {
         return (
             <nav role="navigation">
                 <ul className="nav-links">
-                    {profileLink}
-                    {findFriendLink}
-                    {logOutLink}
                     <li>
                         <Link to="/">
                           New Best Friend
                         </Link>
                     </li>
+                    {logOutLink}
+                    {findFriendLink}
+                    {profileLink}
                 </ul>
             </nav>
         );
