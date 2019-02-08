@@ -12,13 +12,13 @@ nav ul {
 }
 
 nav ul li {
-  float: left;
-  border-right:1px solid #bbb;
+  float: right;
+  border-left:1px solid #bbb;
 }
 
-nav ul li:last-child {
-  border-right: none;
-  float: right;
+nav ul li:first-child {
+  border-left: none;
+  float: left;
 }
 
 nav ul li a {
