@@ -31,6 +31,40 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+@keyframes swipeLeft {
+  0% {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  50% {
+    opacity: .5;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+}
+
+@keyframes swipeLeft {
+  0% {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  50% {
+    opacity: .5;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(500px);
+  }
+}
+
 @media only screen
 and (min-width : 320px)
 and (max-width : 480px) {
