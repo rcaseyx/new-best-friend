@@ -8,13 +8,6 @@ export default function DogCard(props) {
           <div className="info">
               <h3>{props.name}</h3>
               <p>{props.about}</p>
-              <p><a
-                href={props.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-              Learn More
-              </a></p>
           </div>
       </div>
     )
